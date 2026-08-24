@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Rudi Setiawan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0b0101;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        .font-serif-custom {
+            font-family: 'Playfair Display', serif;
+        }
+        .tool-box {
+            background: rgba(15, 3, 3, 0.9);
+            border: 2px solid rgba(185, 28, 28, 0.7);
+            backdrop-filter: blur(8px);
+        }
+        .menu-item.active {
+            background-color: #b91c1c !important;
+            color: #ffffff !important;
+            border-radius: 9999px;
+            box-shadow: 0 10px 15px -3px rgba(153, 27, 27, 0.5);
+        }
+        /* Sembunyikan scrollbar bawaan tapi tetap bisa digeser */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Navbar Atas dengan Hamburger Menu untuk Mobile (Fixed agar selalu tampil saat di-scroll) -->
+    <nav class="w-full px-4 sm:px-6 lg:px-12 py-4 flex justify-between items-center z-50 bg-[#0b0101]/95 backdrop-blur-md fixed top-0 border-b border-red-950/40 shadow-xl">
+        <div class="text-lg sm:text-xl lg:text-2xl font-extrabold tracking-wider text-red-600">PORTOFOLIO</div>
+        
+        <!-- Menu Desktop -->
+        <div class="hidden md:flex items-center gap-6 lg:gap-8 text-xs lg:text-sm font-semibold tracking-widest">
+            <a href="#biodata" class="hover:text-red-500 transition">BIODATA</a>
+            <a href="#project" class="hover:text-red-500 transition">MY PROJECT</a>
+            <a href="#contact" class="bg-red-700 hover:bg-red-800 px-5 lg:px-6 py-2.5 rounded-full text-white transition shadow-lg shadow-red-900/50">CONTACT US</a>
+        </div>
+
+        <!-- Tombol Hamburger Mobile -->
+        <button id="hamburger-btn" class="md:hidden text-white focus:outline-none p-2 cursor-pointer" aria-label="Toggle Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Dropdown Menu Mobile (Hidden by Default & Fixed di bawah Navbar) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#120303] border-b border-red-950 px-6 py-5 space-y-4 z-40 fixed top-[65px] left-0 w-full shadow-2xl backdrop-blur-md bg-opacity-95">
+        <a href="#biodata" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-widest text-gray-300 hover:text-white py-1">BIODATA</a>
+        <a href="#project" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-widest text-gray-300 hover:text-white py-1">MY PROJECT</a>
+        <div class="pt-2">
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-widest text-white bg-red-700 hover:bg-red-800 px-4 py-2.5 rounded-full text-center transition shadow-lg shadow-red-900/50">CONTACT US</a>
+        </div>
+    </div>
+
+    <!-- Hero Section Utama (Diberi id="biodata" agar saat menu Biodata diklik langsung diarahkan ke halaman utama header ini) -->
+    <main id="biodata" class="relative flex-grow flex items-center px-4 sm:px-8 lg:px-16 py-10 sm:py-16 mt-16 bg-[#0b0101] overflow-hidden">
+        
+        <!-- Background Foto Utama (Dipisah: rudi-setiawan-profile1.png untuk Mobile & Tablet, rudi-setiawan-profile2.png untuk Desktop) -->
+        <div class="absolute inset-0 z-0">
+            <!-- Foto untuk Tampilan Mobile & Tablet (< 1024px) -->
+            <img src="image/rudi-setiawan-profile.png" alt="Rudi Setiawan Mobile & Tablet" class="w-full h-full object-cover object-[center_top] opacity-90 block lg:hidden">
+            
+            <!-- Foto untuk Tampilan Desktop (>= 1024px) -->
+            <img src="image/rudi-setiawan-profile2.png" alt="Rudi Setiawan Desktop" class="w-full h-full object-cover object-right opacity-80 hidden lg:block">
+
+            <div class="absolute inset-0 bg-gradient-to-b sm:bg-gradient-to-r from-[#0b0101]/85 via-[#0b0101]/60 to-[#0b0101]/40 lg:from-[#0b0101] lg:via-[#0b0101]/90 lg:to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            
+            <!-- Kolom Teks Kiri -->
+            <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
+                <p class="text-gray-300 text-sm sm:text-base lg:text-lg font-medium">Hey I'am</p>
+                <h1 class="text-3xl sm:text-5xl lg:text-7xl font-serif-custom font-bold leading-tight tracking-wide text-white drop-shadow-lg">
+                    Rudi<br>Setiawan
+                </h1>
+                <p class="text-gray-300 text-xs sm:text-sm leading-relaxed max-w-xl font-medium tracking-wide">
+                    SAYA MERUPAKAN CONTENT CREATIVE BERPENGALAMAN SELAMA 7 TAHUN, DENGAN KEAHLIAN DALAM SEO, DESAIN GRAFIS, VIDEO EDITING, SERTA PHOTOSHOOT PRODUK. BERPENGALAMAN DALAM MEMBUAT KONTEN VISUAL DAN FOTO PRODUK YANG MENARIK UNTUK MENDUKUNG KEBUTUHAN BRAND DAN PEMASARAN. MENGUASAI ADOBE PHOTOSHOP, ADOBE ILLUSTRATOR, CAPCUT, SKETCHUP (3D), SERTA BERBAGAI TOOLS AI UNTUK MENDUKUNG PROSES KREATIF DAN PRODUKSI KONTEN.
+                </p>
+            </div>
+
+            <!-- Kolom Ikon Tools Kanan -->
+            <div class="lg:col-span-5 flex flex-col justify-end items-start lg:items-end h-full min-h-[160px] sm:min-h-[220px] lg:min-h-[300px]">
+                <div class="w-full overflow-x-auto no-scrollbar pb-2">
+                    <!-- Rekomendasi Ukuran Ikon Tools: 100 x 100 px (Format Kotak/Transparan PNG) -->
+                    <div class="flex flex-row flex-nowrap items-center gap-3 justify-start lg:justify-end mt-auto min-w-max">
+                        <div class="tool-box w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center shrink-0 overflow-hidden" title="Adobe Photoshop">
+                            <img src="image/logops.png" alt="Ps" class="w-full h-full object-cover">
+                        </div>
+                        <div class="tool-box w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center shrink-0 overflow-hidden" title="Adobe Illustrator">
+                            <img src="image/logoai.png" alt="Ai" class="w-full h-full object-cover">
+                        </div>
+                        <div class="tool-box w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center shrink-0 overflow-hidden" title="Canva">
+                            <img src="image/canva.png" alt="Canva" class="w-full h-full object-cover">
+                        </div>
+                        <div class="tool-box w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center shrink-0 overflow-hidden" title="Sketchup">
+                            <img src="image/sketchup.png" alt="Sketchup" class="w-full h-full object-cover">
+                        </div>
+                        <div class="tool-box w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center shrink-0 overflow-hidden" title="CapCut">
+                            <img src="image/capcut.png" alt="CapCut" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Kategori Menu Navigasi Subfolder My Project (GRAPHIC DESIGN, VIDEO EDITING, PHOTO SHOOT PRODUCT, ARTICLE PUBLISH) -->
+    <section class="w-full bg-[#0b0101] border-y border-red-950/60 py-3.5 sm:py-4 px-4 sm:px-8 lg:px-12 sticky top-[65px] z-30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto overflow-x-auto no-scrollbar">
+            <div class="flex flex-row flex-nowrap justify-start lg:justify-between items-center text-[11px] sm:text-xs lg:text-sm font-bold tracking-widest gap-3 sm:gap-4 min-w-max">
+                <button onclick="switchTab('graphic')" id="btn-graphic" class="menu-item active px-4 sm:px-5 py-2 sm:py-2.5 text-white transition cursor-pointer rounded-full shrink-0 shadow-md">
+                    GRAPHIC DESIGN ▾
+                </button>
+                <button onclick="switchTab('video')" id="btn-video" class="menu-item px-4 sm:px-5 py-2 sm:py-2.5 text-gray-300 hover:text-white transition cursor-pointer rounded-full shrink-0">
+                    VIDEO EDITING
+                </button>
+                <button onclick="switchTab('photo')" id="btn-photo" class="menu-item px-4 sm:px-5 py-2 sm:py-2.5 text-gray-300 hover:text-white transition cursor-pointer rounded-full shrink-0">
+                    PHOTO SHOOT PRODUCT
+                </button>
+                <button onclick="switchTab('article')" id="btn-article" class="menu-item px-4 sm:px-5 py-2 sm:py-2.5 text-gray-300 hover:text-white transition cursor-pointer rounded-full shrink-0">
+                    ARTICLE PUBLISH
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION KONTEN / GALLERY PROJECT -->
+    <section id="project" class="py-12 sm:py-16 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full space-y-16">
+        
+        <!-- 1. GRAPHIC DESIGN CONTENT -->
+        <div id="tab-graphic" class="tab-content space-y-12">
+            
+            <div class="flex flex-wrap gap-2 pb-4 border-b border-red-950">
+                <a href="#poster-section" class="bg-red-950/60 border border-red-900/50 px-3.5 sm:px-4 py-1.5 rounded-lg text-xs font-semibold hover:bg-red-900 transition">Poster Design</a>
+                <a href="#banner-section" class="bg-red-950/60 border border-red-900/50 px-3.5 sm:px-4 py-1.5 rounded-lg text-xs font-semibold hover:bg-red-900 transition">Banner Design</a>
+                <a href="#logo-section" class="bg-red-950/60 border border-red-900/50 px-3.5 sm:px-4 py-1.5 rounded-lg text-xs font-semibold hover:bg-red-900 transition">Logo Design</a>
+                <a href="#design3d-section" class="bg-red-950/60 border border-red-900/50 px-3.5 sm:px-4 py-1.5 rounded-lg text-xs font-semibold hover:bg-red-900 transition">Design 3D</a>
+            </div>
+
+            <!-- Poster Design -->
+            <div id="poster-section" class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-2.5 sm:w-3 h-5 sm:h-6 bg-red-600 rounded-sm"></div>
+                    <h3 class="text-lg sm:text-xl font-bold tracking-wide uppercase text-white">GRAPHIC DESIGN | POSTER DESAIN</h3>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/poster1.png" class="w-full h-full object-cover" alt="Poster 1"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Poster #1</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/poster2.png" class="w-full h-full object-cover" alt="Poster 2"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Poster #2</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/poster3.png" class="w-full h-full object-cover" alt="Poster 3"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Poster #3</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/poster4.jpg" class="w-full h-full object-cover" alt="Poster 4"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Poster #4</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/poster5.png" class="w-full h-full object-cover" alt="Poster 5"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Poster #5</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/poster6.jpg" class="w-full h-full object-cover" alt="Poster 6"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Poster #6</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/poster7.jpg" class="w-full h-full object-cover" alt="Poster 7"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Poster #7</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/poster8.jpg" class="w-full h-full object-cover" alt="Poster 8"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Poster #8</div></div>
+                </div>
+            </div>
+
+            <!-- Banner Design -->
+            <div id="banner-section" class="space-y-4 pt-6 sm:pt-8">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-2.5 sm:w-3 h-5 sm:h-6 bg-red-600 rounded-sm"></div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide uppercase text-white">GRAPHIC DESIGN | BANNER DESAIN</h3>
+                    </div>
+                </div>
+                
+                <div class="relative group max-w-4xl mx-auto">
+                    <button onclick="scrollBanner(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-3 sm:-ml-5 z-20 bg-red-700 hover:bg-red-800 text-white p-3 rounded-full shadow-2xl transition flex items-center justify-center border-2 border-red-900 cursor-pointer" aria-label="Geser Kiri">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+
+                    <div id="banner-slider" class="flex flex-row flex-nowrap gap-4 sm:gap-6 overflow-x-auto no-scrollbar scroll-smooth px-2 py-2">
+                        <div class="w-[85%] sm:w-[420px] bg-[#120303] border-2 border-red-900 rounded-2xl overflow-hidden shadow-2xl shrink-0 flex flex-col mx-auto">
+                            <div class="w-full bg-black/90 overflow-hidden relative border-b border-red-950 flex items-center justify-center" style="aspect-ratio: 5000 / 1667;">
+                                <img src="image/banner1.png" alt="Banner Design 1" class="w-full h-full object-contain">
+                            </div>
+                            <div class="p-3 text-xs font-semibold text-gray-300 flex justify-between items-center">
+                                <span>Banner Design #1</span>
+                                <span class="text-red-500">Merry Christmas</span>
+                            </div>
+                        </div>
+                        <div class="w-[85%] sm:w-[420px] bg-[#120303] border-2 border-red-900 rounded-2xl overflow-hidden shadow-2xl shrink-0 flex flex-col mx-auto">
+                            <div class="w-full bg-black/90 overflow-hidden relative border-b border-red-950 flex items-center justify-center" style="aspect-ratio: 5000 / 1667;">
+                                <img src="image/banner2.png" alt="Banner Design 2" class="w-full h-full object-contain">
+                            </div>
+                            <div class="p-3 text-xs font-semibold text-gray-300 flex justify-between items-center">
+                                <span>Banner Design #2</span>
+                                <span class="text-red-500">Chinese New Year</span>
+                            </div>
+                        </div>
+                        <div class="w-[85%] sm:w-[420px] bg-[#120303] border-2 border-red-900 rounded-2xl overflow-hidden shadow-2xl shrink-0 flex flex-col mx-auto">
+                            <div class="w-full bg-black/90 overflow-hidden relative border-b border-red-950 flex items-center justify-center" style="aspect-ratio: 5000 / 1667;">
+                                <img src="image/banner3.png" alt="Banner Design 3" class="w-full h-full object-contain">
+                            </div>
+                            <div class="p-3 text-xs font-semibold text-gray-300 flex justify-between items-center">
+                                <span>Banner Design #3</span>
+                                <span class="text-red-500">World Scout Day Edition</span>
+                            </div>
+                        </div>
+                        <div class="w-[85%] sm:w-[420px] bg-[#120303] border-2 border-red-900 rounded-2xl overflow-hidden shadow-2xl shrink-0 flex flex-col mx-auto">
+                            <div class="w-full bg-black/90 overflow-hidden relative border-b border-red-950 flex items-center justify-center" style="aspect-ratio: 5000 / 1667;">
+                                <img src="image/banner4.png" alt="Banner Design 4" class="w-full h-full object-contain">
+                            </div>
+                            <div class="p-3 text-xs font-semibold text-gray-300 flex justify-between items-center">
+                                <span>Banner Design #4</span>
+                                <span class="text-red-500">Art Contest 2022</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="scrollBanner(1)" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-3 sm:-mr-5 z-20 bg-red-700 hover:bg-red-800 text-white p-3 rounded-full shadow-2xl transition flex items-center justify-center border-2 border-red-900 cursor-pointer" aria-label="Geser Kanan">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Logo Design -->
+            <div id="logo-section" class="space-y-4 pt-6 sm:pt-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-2.5 sm:w-3 h-5 sm:h-6 bg-red-600 rounded-sm"></div>
+                    <h3 class="text-lg sm:text-xl font-bold tracking-wide uppercase text-white">GRAPHIC DESIGN | LOGO DESIGN</h3>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/logo1.png" class="w-full h-full object-cover" alt="Logo 1"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Logo #1</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/logo2.png" class="w-full h-full object-cover" alt="Logo 2"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Logo #2</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/logo3.png" class="w-full h-full object-cover" alt="Logo 3"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Logo #3</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/logo4.png" class="w-full h-full object-cover" alt="Logo 4"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Logo #4</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/logo5.png" class="w-full h-full object-cover" alt="Logo 5"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Logo #5</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/logo6.png" class="w-full h-full object-cover" alt="Logo 6"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Logo #6</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/logo7.png" class="w-full h-full object-cover" alt="Logo 7"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Logo #7</div></div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-square w-full bg-black/50 overflow-hidden"><img src="image/logo8.png" class="w-full h-full object-cover" alt="Logo 8"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Logo #8</div></div>
+                </div>
+            </div>
+
+            <!-- Design 3D Sketchup -->
+            <div id="design3d-section" class="space-y-4 pt-6 sm:pt-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-2.5 sm:w-3 h-5 sm:h-6 bg-red-600 rounded-sm"></div>
+                    <h3 class="text-lg sm:text-xl font-bold tracking-wide uppercase text-white">GRAPHIC DESIGN | 3D DESAIN SKETCHUP</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col">
+                        <div class="aspect-video w-full bg-black/50 overflow-hidden relative border-b border-red-950/50">
+                            <img src="image/gambar3d1.png" alt="Design 3D 1" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-3.5 sm:p-4 text-xs font-semibold text-gray-300">3D Display Design #1</div>
+                    </div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col">
+                        <div class="aspect-video w-full bg-black/50 overflow-hidden relative border-b border-red-950/50">
+                            <img src="image/gambar3d2.png" alt="Design 3D 2" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-3.5 sm:p-4 text-xs font-semibold text-gray-300">3D Display Design #2</div>
+                    </div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col">
+                        <div class="aspect-video w-full bg-black/50 overflow-hidden relative border-b border-red-950/50">
+                            <img src="image/gambar3d3.png" alt="Design 3D 3" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-3.5 sm:p-4 text-xs font-semibold text-gray-300">3D Display Design #3</div>
+                    </div>
+                    <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col">
+                        <div class="aspect-video w-full bg-black/50 overflow-hidden relative border-b border-red-950/50">
+                            <img src="image/gambar3d4.png" alt="Design 3D 4" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-3.5 sm:p-4 text-xs font-semibold text-gray-300">3D Display Design #4</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2. VIDEO EDITING CONTENT -->
+        <div id="tab-video" class="tab-content hidden space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 sm:w-3 h-5 sm:h-6 bg-red-600 rounded-sm"></div>
+                <h3 class="text-lg sm:text-xl font-bold tracking-wide uppercase text-white">VIDEO EDITING PORTFOLIO (SHORTS & TIKTOK)</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col justify-between">
+                    <a href="https://www.youtube.com/shorts/DYemQijsGgM" target="_blank" class="w-full bg-black overflow-hidden relative border-b border-red-950/50 block group" style="aspect-ratio: 9/16;">
+                        <img src="https://img.youtube.com/vi/DYemQijsGgM/hqdefault.jpg" alt="YouTube Short 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg text-white">
+                                <svg class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-4 flex flex-col gap-2">
+                        <span class="text-xs font-semibold text-white">Shorts Video Project 1</span>
+                        <a href="https://www.youtube.com/shorts/DYemQijsGgM" target="_blank" class="bg-red-700 hover:bg-red-800 text-white text-center py-2 rounded-lg text-xs font-semibold transition">Tonton Video →</a>
+                    </div>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col justify-between">
+                    <a href="https://www.youtube.com/shorts/Kih6Ydn4-qY" target="_blank" class="w-full bg-black overflow-hidden relative border-b border-red-950/50 block group" style="aspect-ratio: 9/16;">
+                        <img src="https://img.youtube.com/vi/Kih6Ydn4-qY/hqdefault.jpg" alt="YouTube Short 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg text-white">
+                                <svg class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-4 flex flex-col gap-2">
+                        <span class="text-xs font-semibold text-white">Shorts Video Project 2</span>
+                        <a href="https://www.youtube.com/shorts/Kih6Ydn4-qY" target="_blank" class="bg-red-700 hover:bg-red-800 text-white text-center py-2 rounded-lg text-xs font-semibold transition">Tonton Video →</a>
+                    </div>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col justify-between">
+                    <a href="https://www.youtube.com/shorts/vClzh1uvbcw" target="_blank" class="w-full bg-black overflow-hidden relative border-b border-red-950/50 block group" style="aspect-ratio: 9/16;">
+                        <img src="https://img.youtube.com/vi/vClzh1uvbcw/hqdefault.jpg" alt="YouTube Short 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg text-white">
+                                <svg class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-4 flex flex-col gap-2">
+                        <span class="text-xs font-semibold text-white">Shorts Video Project 3</span>
+                        <a href="https://www.youtube.com/shorts/vClzh1uvbcw" target="_blank" class="bg-red-700 hover:bg-red-800 text-white text-center py-2 rounded-lg text-xs font-semibold transition">Tonton Video →</a>
+                    </div>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col justify-between">
+                    <a href="https://youtube.com/shorts/fmKzB5fpD3o?si=6ZkHNAd4SqXbg5Hr" target="_blank" class="w-full bg-black overflow-hidden relative border-b border-red-950/50 block group" style="aspect-ratio: 9/16;">
+                        <img src="https://img.youtube.com/vi/fmKzB5fpD3o/hqdefault.jpg" alt="YouTube Short 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg text-white">
+                                <svg class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-4 flex flex-col gap-2">
+                        <span class="text-xs font-semibold text-white">Shorts Video Project 4</span>
+                        <a href="https://youtube.com/shorts/fmKzB5fpD3o?si=6ZkHNAd4SqXbg5Hr" target="_blank" class="bg-red-700 hover:bg-red-800 text-white text-center py-2 rounded-lg text-xs font-semibold transition">Tonton Video →</a>
+                    </div>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col justify-between">
+                    <a href="https://www.youtube.com/shorts/5URCVlpsWHs" target="_blank" class="w-full bg-black overflow-hidden relative border-b border-red-950/50 block group" style="aspect-ratio: 9/16;">
+                        <img src="https://img.youtube.com/vi/5URCVlpsWHs/hqdefault.jpg" alt="YouTube Short 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg text-white">
+                                <svg class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-4 flex flex-col gap-2">
+                        <span class="text-xs font-semibold text-white">Shorts Video Project 5</span>
+                        <a href="https://www.youtube.com/shorts/5URCVlpsWHs" target="_blank" class="bg-red-700 hover:bg-red-800 text-white text-center py-2 rounded-lg text-xs font-semibold transition">Tonton Video →</a>
+                    </div>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col justify-between">
+                    <a href="https://www.youtube.com/shorts/uCDk6-XId2c" target="_blank" class="w-full bg-black overflow-hidden relative border-b border-red-950/50 block group" style="aspect-ratio: 9/16;">
+                        <img src="https://img.youtube.com/vi/uCDk6-XId2c/hqdefault.jpg" alt="YouTube Short 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg text-white">
+                                <svg class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-4 flex flex-col gap-2">
+                        <span class="text-xs font-semibold text-white">Shorts Video Project 6</span>
+                        <a href="https://www.youtube.com/shorts/uCDk6-XId2c" target="_blank" class="bg-red-700 hover:bg-red-800 text-white text-center py-2 rounded-lg text-xs font-semibold transition">Tonton Video →</a>
+                    </div>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col justify-between">
+                    <a href="https://www.youtube.com/shorts/itl2ePqIboc" target="_blank" class="w-full bg-black overflow-hidden relative border-b border-red-950/50 block group" style="aspect-ratio: 9/16;">
+                        <img src="https://img.youtube.com/vi/itl2ePqIboc/hqdefault.jpg" alt="YouTube Short 7" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg text-white">
+                                <svg class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-4 flex flex-col gap-2">
+                        <span class="text-xs font-semibold text-white">Shorts Video Project 7</span>
+                        <a href="https://www.youtube.com/shorts/itl2ePqIboc" target="_blank" class="bg-red-700 hover:bg-red-800 text-white text-center py-2 rounded-lg text-xs font-semibold transition">Tonton Video →</a>
+                    </div>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col justify-between">
+                    <a href="https://www.youtube.com/shorts/iGexcMjuPR0" target="_blank" class="w-full bg-black overflow-hidden relative border-b border-red-950/50 block group" style="aspect-ratio: 9/16;">
+                        <img src="https://img.youtube.com/vi/iGexcMjuPR0/hqdefault.jpg" alt="YouTube Short 8" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg text-white">
+                                <svg class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-4 flex flex-col gap-2">
+                        <span class="text-xs font-semibold text-white">Shorts Video Project 8</span>
+                        <a href="https://www.youtube.com/shorts/iGexcMjuPR0" target="_blank" class="bg-red-700 hover:bg-red-800 text-white text-center py-2 rounded-lg text-xs font-semibold transition">Tonton Video →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. PHOTO SHOOT PRODUCT CONTENT -->
+        <div id="tab-photo" class="tab-content hidden space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 sm:w-3 h-5 sm:h-6 bg-red-600 rounded-sm"></div>
+                <h3 class="text-lg sm:text-xl font-bold tracking-wide uppercase text-white">PHOTO SHOOT PRODUCT</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-[4/5] w-full bg-black/50 overflow-hidden"><img src="image/produk1.png" class="w-full h-full object-cover" alt="Product 1"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Product #1</div></div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-[4/5] w-full bg-black/50 overflow-hidden"><img src="image/produk2.png" class="w-full h-full object-cover" alt="Product 2"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Product #2</div></div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-[4/5] w-full bg-black/50 overflow-hidden"><img src="image/produk3.png" class="w-full h-full object-cover" alt="Product 3"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Product #3</div></div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-[4/5] w-full bg-black/50 overflow-hidden"><img src="image/produk4.png" class="w-full h-full object-cover" alt="Product 4"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Product #4</div></div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-[4/5] w-full bg-black/50 overflow-hidden"><img src="image/produk5.png" class="w-full h-full object-cover" alt="Product 5"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Product #5</div></div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-[4/5] w-full bg-black/50 overflow-hidden"><img src="image/produk6.png" class="w-full h-full object-cover" alt="Product 6"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Product #6</div></div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-[4/5] w-full bg-black/50 overflow-hidden"><img src="image/produk7.png" class="w-full h-full object-cover" alt="Product 7"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Product #7</div></div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl overflow-hidden shadow-xl flex flex-col"><div class="aspect-[4/5] w-full bg-black/50 overflow-hidden"><img src="image/produk8.png" class="w-full h-full object-cover" alt="Product 8"></div><div class="p-2 text-[10px] text-gray-300 text-center font-semibold">Product #8</div></div>
+            </div>
+        </div>
+
+        <!-- 4. ARTICLE PUBLISH CONTENT -->
+        <div id="tab-article" class="tab-content hidden space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 sm:w-3 h-5 sm:h-6 bg-red-600 rounded-sm"></div>
+                <h3 class="text-lg sm:text-xl font-bold tracking-wide uppercase text-white">ARTICLE PUBLISH & SEO</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                <div class="bg-[#120303] border border-red-950 rounded-xl p-5 sm:p-6 shadow-xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-white">Auto Savage! Ini Build Layla Tersakit 2020 di Mobile Legends</h4>
+                        <p class="text-xs text-gray-400">Layla merupakan hero Marksman yang sudah cukup lama ada di game Mobile Legends...</p>
+                    </div>
+                    <a href="https://upoint.id/article/id/1933/news/auto-savage-ini-build-layla-tersakit-2020-di-mobile-legends" target="_blank" class="inline-block text-xs text-red-500 font-semibold cursor-pointer hover:underline pt-2">Baca Selengkapnya →</a>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl p-5 sm:p-6 shadow-xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-white">Wajib Coba! Ini Build Balmond Tersakit di Mobile Legends</h4>
+                        <p class="text-xs text-gray-400">Balmond merupakan hero Fighter yang memiliki HP dan Armor yang sangat besar...</p>
+                    </div>
+                    <a href="https://upoint.id/article/id/1932/news/wajib-coba-ini-build-balmond-tersakit-di-mobile-legends" target="_blank" class="inline-block text-xs text-red-500 font-semibold cursor-pointer hover:underline pt-2">Baca Selengkapnya →</a>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl p-5 sm:p-6 shadow-xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-white">Sakit Parah! Ini Build Miya Tersakit Mobile Legends Season 18</h4>
+                        <p class="text-xs text-gray-400">Miya merupakan salah satu hero Marksman Mobile Legends yang akhir-akhir ini...</p>
+                    </div>
+                    <a href="https://upoint.id/article/id/1929/news/sakit-parah-ini-build-miya-tersakit-mobile-legends-season-18" target="_blank" class="inline-block text-xs text-red-500 font-semibold cursor-pointer hover:underline pt-2">Baca Selengkapnya →</a>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl p-5 sm:p-6 shadow-xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-white">Dijamin Gampang Mati! 5 Hero Counter Uranus Terbaik di Mobile Legends</h4>
+                        <p class="text-xs text-gray-400">Di Mobile Legends, ada banyak sekali jenis-jenis hero di dalamnya...</p>
+                    </div>
+                    <a href="https://upoint.id/article/id/1897/news/dijamin-gampang-mati-5-hero-counter-uranus-terbaik-di-mobile-legends" target="_blank" class="inline-block text-xs text-red-500 font-semibold cursor-pointer hover:underline pt-2">Baca Selengkapnya →</a>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl p-5 sm:p-6 shadow-xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-white">Susah Mati! Ini Tips Main Yu Zhong Mobile Legends yang Benar</h4>
+                        <p class="text-xs text-gray-400">Yu Zhong merupakan salah satu hero Fighter yang sangat...</p>
+                    </div>
+                    <a href="https://upoint.id/article/id/1876/news/susah-mati-ini-tips-main-yu-zhong-mobile-legends-yang-benar" target="_blank" class="inline-block text-xs text-red-500 font-semibold cursor-pointer hover:underline pt-2">Baca Selengkapnya →</a>
+                </div>
+                <div class="bg-[#120303] border border-red-950 rounded-xl p-5 sm:p-6 shadow-xl space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-white">Sekali Serang Musuh Mati! Ini Tips Main Cecilion Mobile Legends</h4>
+                        <p class="text-xs text-gray-400">Cecilion merupakan salah satu hero Mage Mobile Legends dengan kemampuan...</p>
+                    </div>
+                    <a href="https://upoint.id/article/id/1879/news/sekali-serang-musuh-mati-ini-tips-main-cecilion-mobile-legends" target="_blank" class="inline-block text-xs text-red-500 font-semibold cursor-pointer hover:underline pt-2">Baca Selengkapnya →</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer / Kontak (Nomor WhatsApp & Email Direct Link) -->
+    <footer id="contact" class="w-full bg-[#0b0101] border-t border-red-950 px-4 sm:px-6 py-10 sm:py-12 text-center space-y-6">
+        <h2 class="text-3xl sm:text-4xl font-serif-custom font-bold text-white">Thank You</h2>
+        <p class="text-red-500 text-xs tracking-widest uppercase">Let's Build Something Great Together</p>
+        <div class="max-w-md mx-auto bg-[#120303] border border-red-950 p-5 sm:p-6 rounded-xl space-y-3 text-xs sm:text-sm text-gray-300">
+            <p>
+                📞 <a href="https://wa.me/628985897924" target="_blank" class="hover:text-red-500 transition underline font-semibold"><strong>+62 898-5897-924</strong></a>
+            </p>
+            <p>
+                ✉️ <a href="mailto:rudistiawn13@gmail.com" class="hover:text-red-500 transition underline font-semibold"><strong>rudistiawn13@gmail.com</strong></a>
+            </p>
+            <p>📍 <strong>Cipadu, Larangan, Kota Tangerang</strong></p>
+        </div>
+        <p class="text-[11px] sm:text-xs text-gray-600 pt-6">&copy; 2026 Rudi Setiawan. All rights reserved. Ready for Vercel deployment.</p>
+    </footer>
+
+    <!-- JavaScript untuk Hamburger Menu, Tab Switch, & Slider Banners -->
+    <script>
+        // Fungsi Toggle untuk Mobile Hamburger Menu
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Fungsi Switch Tab Kategori Proyek
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            const buttons = document.querySelectorAll('.menu-item');
+            buttons.forEach(btn => btn.classList.remove('active', 'bg-red-700', 'text-white'));
+            buttons.forEach(btn => btn.classList.add('text-gray-300'));
+
+            const selectedTab = document.getElementById('tab-' + tabId);
+            if (selectedTab) {
+                selectedTab.classList.remove('hidden');
+            }
+
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.classList.remove('text-gray-300');
+            }
+        }
+
+        // Fungsi Slider Horizontal untuk Banner Desain
+        function scrollBanner(direction) {
+            const slider = document.getElementById('banner-slider');
+            if (slider) {
+                const scrollAmount = slider.clientWidth * 0.75;
+                slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body>
+</html>
